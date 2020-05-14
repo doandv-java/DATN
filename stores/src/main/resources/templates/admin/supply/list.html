@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Supply</title>
+    <link href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" type="text/css">
+</head>
+<body>
+<p th:text="${user.getUserName()}"></p>
+<p th:text="${user.getAvatar()}"></p>
+<p th:text="${user.getAddress()}"></p>
+<p th:text="${user.birthDay}"></p>
+<p th:text="${user.getName()}"></p>
+<p th:text="${user.getPhone()}"></p>
+<p th:text="${user.getRole()}"></p>
+<p>Thong tin nha cung cap:</p>
+<table id="supplyTable">
+    <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th><a href="#">Add</a></th>
+    </thead>
+    <tbody>
+    <tr th:each="supply:${supplies}" th:id="${supply.id}">
+        <td th:text="${supply.id}"></td>
+        <td th:text="${supply.name}"></td>
+        <td th:text="${supply.email}"></td>
+        <td th:text="${supply.phone}"></td>
+        <td th:text="${supply.address}"></td>
+        <td><a th:href="@{'admin/supply/'+${supply.id}}">Sua</a>
+            <a th:onclick="'deleteSuply('+${supply.id}+')'">Xoa</a></td>
+    </tr>
+    </tbody>
+</table>
+<script src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+<script th:src="@{/js/admin/supply.js}"></script>
+</body>
+</html>

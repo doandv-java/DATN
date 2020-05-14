@@ -11,4 +11,10 @@ public class Constants {
         public static final String USER = "/upload/user.jpg";
 
     }
+
+    @Data
+    public static class DELETE {
+        public static final int TRUE = 1;
+        public static final int FALSE = 0;
+    }
 }
